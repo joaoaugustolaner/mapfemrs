@@ -2,8 +2,7 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
-@app.get("/")
+
+@app.get('/')
 def this_is_test() -> dict[str, str]:
-    return {"message" : "Olá, Inácio"}
-
-
+    return {'message': 'Olá, Inácio'}

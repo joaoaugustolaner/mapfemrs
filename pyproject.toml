@@ -23,9 +23,9 @@ select=['I', 'F', 'E', 'W', 'PL', 'PT']
 
 [tool.ruff.format]
 quote-style='single'
-indent-style='tab'
+indent-style='space'
 docstring-code-format=true
-docstring-code-line-lenght=30
+docstring-code-line-length=30
 
 [tool.pytest.ini_options]
 pythonpath = '.'
