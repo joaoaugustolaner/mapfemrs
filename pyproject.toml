@@ -1,0 +1,32 @@
+[project]
+name = "mapfemrs"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi[standard]>=0.128.0",
+    "scrapy>=2.14.1",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.15.0",
+]
+
+
+[tool.ruff]
+line-length=79
+extend-exclude= ['migrations']
+
+[tool.ruff.lint]
+select=['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.format]
+quote-style='single'
+indent-style='tab'
+docstring-code-format=true
+docstring-code-line-lenght=30
+
+[tool.pytest.ini_options]
+pythonpath = '.'
+addopts = '-p no:warnings'
