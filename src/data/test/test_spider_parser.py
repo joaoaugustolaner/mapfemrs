@@ -9,7 +9,7 @@ def test_should_return_a_list_containing_sample_of_links_from_html():
 
     current_dir = os.path.dirname(__file__)
 
-    fixture_path = os.path.join(current_dir, 'fixture', 'sample.html')
+    fixture_path = os.path.join(current_dir, 'fixtures', 'sample.html')
     with open(
             fixture_path,
             'r',
@@ -27,4 +27,4 @@ def test_should_return_a_list_containing_sample_of_links_from_html():
         result = list(spider.parse(response))
 
         assert len(result) > 0
-        assert result[0].startswith('https://')
+        assert result[0]['file_url'].__contains__('upload/arquivos')

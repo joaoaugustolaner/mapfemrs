@@ -2,6 +2,8 @@ import scrapy
 
 
 class SsprsSpider(scrapy.Spider):
+
+    base_url = 'https://ssp.rs.gov.br/'
     name = 'ssprs'
     allowed_domains = ['ssp.rs.gov.br']
     start_urls = [
@@ -9,11 +11,13 @@ class SsprsSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        links = [link for link in response.xpath(
-            '//div[@class="artigo__texto"]/p/a/@href'
-        ).getall()]
-
-        breakpoint()
-        self.logger.warn(f'{links} accessed')
-
-        return links
+        links = response.xpath("//div[contains(@class, 'artigo__texto')]//a[contains(@href, '.xlsx')]/@href").getall()
+        
+        
+        for link in links:
+            if(link).__contains__('admin'):
+                
+            yield {
+                'file_url':link
+            }
+        
