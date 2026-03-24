@@ -1,31 +1,15 @@
 [project]
 name = "mapfemrs"
 version = "0.1.0"
-requires-python = ">=3.12"
-dependencies = [
-    "beautifulsoup4>=4.14.3",
+description = "Default template for PDM package"
+authors = [
+    {name = "João Augusto T. Laner", email = "joaoaugustolaner@proton.me"},
 ]
-
-[dependency-groups]
-dev = [
-    "pytest>=9.0.2",
-    "pytest-cov>=7.0.0",
-    "ruff>=0.15.0",
-]
+dependencies = ["black>=26.3.1", "httpx>=0.28.1", "beautifulsoup4>=4.14.3", "pytest>=9.0.2"]
+requires-python = ">= 3.13"
+readme = "README.md"
+license = {text = "CC BY-NC-SA"}
 
 
-[tool.ruff]
-line-length=79
-
-[tool.ruff.lint]
-select=['I', 'F', 'E', 'W', 'PL', 'PT']
-
-[tool.ruff.format]
-quote-style='single'
-indent-style='space'
-docstring-code-format=true
-docstring-code-line-length=30
-
-[tool.pytest.ini_options]
-pythonpath = '.'
-addopts = '-p no:warnings'
+[tool.pdm]
+distribution = false
