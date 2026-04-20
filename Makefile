@@ -3,4 +3,4 @@ BACKEND_DIR=api/
 APP_DIR=app/
 
 test-data:
-	uv run --project data/ pytest data/test/
+	uv run -m pytest test/

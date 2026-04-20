@@ -4,7 +4,7 @@ from urllib.parse import urljoin
 import httpx
 from bs4 import BeautifulSoup
 
-from data.src.utils.logger import logger
+from src.utils.logger import logger
 
 
 
@@ -48,7 +48,7 @@ class SSPRSParser:
         if not html:
             return []
 
-        soup = BeautifulSoup(html, 'html_parser')
+        soup = BeautifulSoup(html, 'html.parser')
         container = soup.find('div', class_="artigo__texto")
 
         if not container:
@@ -87,11 +87,11 @@ class SSPRSParser:
         with httpx.Client(timeout=15.0, follow_redirects=True) as client:
             for item in links:
                 target = self.output_dir / item["filename"]
-                logger.warning(f"Baixando {item["link"]} e colocando em {target}")
+                logger.warning(f"Baixando {item['link']} e colocando em {target}")
 
                 try:
-                    res = client.get(item['url'])
+                    res = client.get(item['link'])
                     res.raise_for_status()
                     target.write_bytes(res.content)
                 except Exception as e:
-                    logger.error(f"Falha ao baixar {item['url']}: {e}")
+                    logger.error(f"Falha ao baixar {item['link']}: {e}")

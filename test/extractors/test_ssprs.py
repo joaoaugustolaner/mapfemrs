@@ -4,7 +4,7 @@ import httpx
 import pytest
 from bs4 import BeautifulSoup
 
-from data.src.extractors.ssprs import SSPRSParser
+from src.extractors.ssprs import SSPRSParser
 
 
 @pytest.fixture
@@ -103,8 +103,8 @@ def test_download_success(parser, mocker):
 def test_download_failure_continues(parser, mocker):
 
     test_links = [
-        {"filename": "fail.xlsx", "url": "http://fail.com"},
-        {"filename": "success.xlsx", "url": "http://success.com"}
+        {"filename": "fail.xlsx", "link": "http://fail.com"},
+        {"filename": "success.xlsx", "link": "http://success.com"}
     ]
     
     def side_effect(url, **kwargs):
