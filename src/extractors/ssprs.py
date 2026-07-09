@@ -12,7 +12,7 @@ class SSPRSParser:
     def __init__(self, url='https://ssp.rs.gov.br/indicadores-da-violencia-contra-a-mulher'):
         self.url = url
         self.base_url = "https://ssp.rs.gov.br"
-        self.output_dir = Path('src/data/raw')
+        self.output_dir = Path('src/data/ssprs/raw')
 
     def _retrieve_html(self):
         """

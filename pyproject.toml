@@ -7,6 +7,7 @@ requires-python = ">=3.13"
 dependencies = [
     "beautifulsoup4>=4.14.3",
     "httpx>=0.28.1",
+    "pysus>=1.0.1",
     "pytest>=9.0.3",
 ]
 
